@@ -1,0 +1,36 @@
+1. Создаем systemd сервис
+bash
+sudo nano /etc/systemd/system/news-informer.service
+Добавьте содержимое:
+
+ini
+[Unit]
+Description=News Informer Service
+After=network.target
+Wants=network.target
+
+[Service]
+Type=simple
+User=your_username  # ЗАМЕНИТЕ на ваше имя пользователя
+Group=your_username # ЗАМЕНИТЕ на вашу группу
+WorkingDirectory=/home/your_username/nix2/news_informer2
+ExecStart=/bin/bash /home/your_username/nix2/news_informer2/install_news_informer.sh
+Restart=on-failure
+RestartSec=10
+Environment=PYTHONUNBUFFERED=1
+
+[Install]
+WantedBy=multi-user.target
+2. Активируем сервис
+bash
+# Перезагружаем systemd
+sudo systemctl daemon-reload
+
+# Включаем автозагрузку
+sudo systemctl enable news-informer.service
+
+# Запускаем сервис
+sudo systemctl start news-informer.service
+
+# Проверяем статус
+sudo systemctl status news-informer.service
