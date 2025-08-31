@@ -1,0 +1,11 @@
+# Статус
+systemctl --user status news_informer.service
+
+# Перезапуск
+systemctl --user restart news_informer.service
+
+# Остановка
+systemctl --user stop news_informer.service
+
+# Просмотр логов
+journalctl --user -u news_informer.service -f
