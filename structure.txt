@@ -1,0 +1,10 @@
+news_informer_project/
+├── scripts/                 # Скрипты установки и Python код
+│   ├── install_tass_only.sh    # Установка только ТАСС
+│   ├── install_multi_source.sh # Установка мультиязычной версии
+│   └── news_informer.py        # Основной Python скрипт
+├── config/                  # Конфигурационные файлы
+│   └── sources.list        # Список RSS-источников
+├── docs/                   # Документация
+├── backups/               # Резервные копии
+└── README.md             # Этот файл
